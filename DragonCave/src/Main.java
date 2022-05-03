@@ -9,7 +9,19 @@ public class Main {
                 is greedy and hungry and will eat you on sight.
                 Which cave will you go into? (1 or 2)""");
         Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+
+        int number = 1;
+        try {
+            number = sc.nextInt();
+
+            if(number < 1 || number > 2)  {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("""
+                    You were indecisive...
+                    """);
+        }
 
         System.out.println("""
                     You approach the cave...
