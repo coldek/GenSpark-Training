@@ -1,3 +1,6 @@
+# GuessTheNumber
+>![Output](https://i.imgur.com/AUFtrou.png)
+```java
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,12 +12,7 @@ public class Main {
 
         System.out.println("Hello! What is your name?");
 
-        String name = "John Doe";
-        try {
-            name = sc.nextLine();
-        } catch (Exception e) {
-            return;
-        }
+        String name = sc.nextLine();
 
         while(true) {
             System.out.printf("Well, %s, I am thinking of a number between 1 and 20.\nTake a guess.%n", name);
@@ -24,14 +22,7 @@ public class Main {
             int guesses = -1;
 
             while (answer != guess) {
-                guess = 1;
-                try {
-                    guess = sc.nextInt();
-                } catch (Exception e) {
-                    System.out.println("Please pick a number between 1 and 20. Try again.");
-                    sc.nextLine();
-                    continue;
-                }
+                guess = sc.nextInt();
 
                 if (guess < answer) {
                     System.out.println("Your guess is too low.\nTake a guess.");
@@ -39,7 +30,7 @@ public class Main {
                     System.out.println("Your guess is too high.\nTake a guess.");
                 }
 
-                guesses++;
+                guesses += 1;
             }
 
             System.out.printf("Good job, %s! You guessed my number in %s guesses!\nWould you like to play again? (y or n)\n", name, guesses);
@@ -51,3 +42,4 @@ public class Main {
         }
     }
 }
+```
